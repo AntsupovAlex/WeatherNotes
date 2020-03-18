@@ -2,7 +2,10 @@ package com.example.weathernotes;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -10,5 +13,24 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Button addButton = (Button) findViewById(R.id.add_button);
+        Button reportButton = (Button) findViewById(R.id.report_button);
+
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,AddNotes.class);
+                startActivity(intent);
+            }
+        });
+
+        reportButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,viewReport.class);
+                startActivity(intent);
+            }
+        });
     }
 }
